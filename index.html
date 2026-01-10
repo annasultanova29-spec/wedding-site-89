@@ -2154,22 +2154,37 @@ body::after {
     </div>
 
     <!-- Главный экран -->
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <div class="invitation-label">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
-            <h1 class="couple-names">Кристалина & Александр</h1>
-            <div class="wedding-date">8 февраля 2026</div>
-            <div class="wedding-time">Сбор гостей — 17:00</div>
+   <section class="hero-section" id="home">
+    <!-- ФОНОВОЕ ИЗОБРАЖЕНИЕ С ВЫБОРОМ ДЛЯ РАЗНЫХ УСТРОЙСТВ -->
+    <div class="hero-background">
+        <picture>
+            <!-- Для компьютеров (широкие экраны) -->
+            <source 
+                media="(min-width: 769px)" 
+                srcset="assets/images/proposal-bg-desktop.jpg">
+            <!-- Для мобильных (вертикальные) - используем старый файл -->
+            <img 
+                src="assets/images/proposal-bg.jpg"  <!-- СТАРОЕ НАЗВАНИЕ! -->
+                alt="Кристалина и Александр"
+                loading="eager">
+        </picture>
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+        <div class="invitation-label">ПРИГЛАШЕНИЕ НА СВАДЬБУ</div>
+        <h1 class="couple-names">Кристалина & Александр</h1>
+        <div class="wedding-date">8 февраля 2026</div>
+        <div class="wedding-time">Сбор гостей — 17:00</div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="arrow-down">
+            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-down"></i>
         </div>
-        <div class="scroll-indicator">
-            <div class="arrow-down">
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-down"></i>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
-
+    </div>
+</section>
     <!-- Пригласительный блок -->
     <section class="welcome-section" id="invitation">
         <div class="container">
