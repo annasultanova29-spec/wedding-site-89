@@ -3345,6 +3345,31 @@ function initRSVPForm() {
         background: rgba(255, 255, 255, 0.06) !important;
     }
 }
+/* ФИКС МЕРЦАНИЯ - СИЛОЙ! */
+.welcome-card,
+.story-content,
+.detail-card,
+.program-item,
+.rsvp-form,
+.chat-card,
+.love-equation {
+    animation: gentleGlassGlow 8s ease-in-out infinite !important;
+    animation-play-state: running !important;
+}
+
+/* УБЕДИТЕСЬ что анимация работает на мобильных */
+@media (max-width: 768px) {
+    .welcome-card,
+    .story-content,
+    .detail-card,
+    .program-item,
+    .rsvp-form,
+    .chat-card,
+    .love-equation {
+        animation: gentleGlowMobile 6s ease-in-out infinite !important;
+        animation-play-state: running !important;
+    }
+}
 </style>
 
 </body>
