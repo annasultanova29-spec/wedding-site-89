@@ -3185,6 +3185,18 @@ function initRSVPForm() {
     .final-section {
         height: 100vh !important;
     }
+/* НЕ ДАЁМ ТЕКСТУ УЕЗЖАТЬ ВВЕРХ НА КОМПЬЮТЕРЕ */
+@media (min-width: 769px) {
+    .final-section {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .final-content {
+        transform: translateY(0) !important;
+        margin-top: 0 !important;
+    }
 }
 
 </style>
