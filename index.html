@@ -2551,24 +2551,24 @@ body::after {
         </div>
     </section>
     
- <!-- Финальный блок с видео -->
+<!-- Финальный блок с видео - ИСПРАВЛЕННАЯ ВЕРСИЯ -->
 <section class="final-section" id="final">
     <!-- Видео на фоне -->
-  <div class="video-background">
-    <video autoplay muted loop playsinline 
-
- 
-           poster="assets/images/nvitation-bg.jpg"
-           onerror="this.style.display='none'; document.getElementById('video-fallback').style.display='block';">
-       <source src="assets/video/wedding-video.mp4" type="video/mp4">
-<source src="https://assets.mixkit.co/videos/preview/mixkit-a-couple-getting-married-under-a-tree-41083-large.mp4" type="video/mp4">
-         </video>
-</div>
+    <div class="video-background">
+        <video autoplay muted loop playsinline 
+               poster="assets/images/nvitation-bg.jpg"
+               onerror="this.style.display='none'; document.getElementById('video-fallback').style.display='block';">
+            <source src="assets/video/wedding-video.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-a-couple-getting-married-under-a-tree-41083-large.mp4" type="video/mp4">
+        </video>
+    </div>
+    
     <!-- Запасной фон -->
     <div id="video-fallback" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, rgba(128,207,255,0.3), rgba(193,162,232,0.3));">
         <div style="width:100%; height:100%; background-image:url('assets/images/nvitation-bg.jpg'); background-size:cover; background-position:center; opacity:0.7;"></div>
     </div>
-</div>    <!-- Затемнение для читаемости текста -->
+    
+    <!-- Затемнение для читаемости текста -->
     <div class="video-overlay"></div>
     
     <!-- Контент поверх видео -->
@@ -2587,8 +2587,7 @@ body::after {
             <div class="final-date">8 февраля 2026</div>
         </div>
     </div>
-</section>
-    <!-- Кнопка музыки -->
+</section>    <!-- Кнопка музыки -->
     <button id="music-toggle" class="music-btn">
         <i class="fas fa-volume-mute"></i>
     </button>
