@@ -2065,11 +2065,9 @@ body::before {
     }
 }
 
-/* ===== ФИКС ДЛЯ ПРОЗРАЧНЫХ КАРТОЧЕК (ОСНОВНЫЕ СТИЛИ) ===== */
-body::after {
-    background: rgba(255, 255, 255, 0.15) !important;
-}
 
+/* ===== МАТОВОЕ СТЕКЛО С МЕРЦАНИЕМ ===== */
+/* Общие стили для всех карточек */
 .welcome-card,
 .story-content,
 .detail-card,
@@ -2077,30 +2075,117 @@ body::after {
 .rsvp-form,
 .chat-card,
 .love-equation {
-    opacity: 0.95 !important;
-    backdrop-filter: blur(15px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
-    background: rgba(255, 255, 255, 0.75) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important; /* ЛЕГКАЯ ПРОЗРАЧНОСТЬ */
+    backdrop-filter: blur(20px) saturate(200%) !important; /* ЭФФЕКТ МАТОВОГО СТЕКЛА */
+    -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important; /* БЕЛАЯ РАМКА */
+    border-radius: 25px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    animation: glassGlow 8s ease-in-out infinite !important; /* МЕРЦАНИЕ */
 }
 
+/* Слой для внутреннего свечения */
+.welcome-card::before,
+.story-content::before,
+.detail-card::before,
+.program-item::before,
+.rsvp-form::before,
+.chat-card::before,
+.love-equation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+    animation: shimmer 4s ease-in-out infinite alternate;
+}
+
+/* Анимация мерцания */
+@keyframes glassGlow {
+    0%, 100% {
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.15),
+            0 0 20px rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.2),
+            0 0 30px rgba(255, 255, 255, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Анимация внутреннего сияния */
+@keyframes shimmer {
+    0% {
+        opacity: 0.4;
+        background-position: -200% center;
+    }
+    100% {
+        opacity: 0.7;
+        background-position: 200% center;
+    }
+}
+
+/* Чтобы текст был поверх эффекта */
+.welcome-card > *,
+.story-content > *,
+.detail-card > *,
+.program-item > *,
+.rsvp-form > *,
+.chat-card > *,
+.love-equation > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Особые настройки для каждой карточки */
 .welcome-card {
-    background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(20px) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.story-content {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.detail-card {
+    background: rgba(255, 255, 255, 0.09) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.program-item {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.rsvp-form {
+    background: rgba(255, 255, 255, 0.11) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.chat-card {
+    background: rgba(255, 255, 255, 0.13) !important;
+    border: 1px solid rgba(255, 255, 255, 0.32) !important;
 }
 
 .love-equation {
-    background: rgba(255, 255, 255, 0.65) !important;
-    backdrop-filter: blur(12px) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }
-
-.photo-overlay {
-    background: rgba(0, 0, 0, 0.25) !important;
-    backdrop-filter: blur(4px) !important;
-  
-}
-        
 
 .story-content h3,
 .detail-card h3,
