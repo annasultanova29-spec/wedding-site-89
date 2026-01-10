@@ -2128,7 +2128,43 @@ body::after {
 .photo-overlay {
     background: rgba(0, 0, 0, 0.25) !important;
     backdrop-filter: blur(4px) !important;
+    /* ===== ИСПРАВЛЕНИЯ ТОЛЬКО ДЛЯ КОМПЬЮТЕРА ===== */
+@media (min-width: 769px) {
+    /* ФИКС ДЛЯ ГЛАВНОГО ЭКРАНА */
+    .hero-section {
+        background-attachment: scroll !important; /* Убираем fixed */
+        background-position: center center !important;
+        background-size: cover !important;
+        height: 100vh !important;
+    }
+    
+    /* ФИКС ДЛЯ ВИДЕО БЛОКА */
+    .video-background video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+    
+    /* ФИКС ДЛЯ ФИНАЛЬНОГО БЛОКА */
+    .final-section {
+        height: 100vh !important;
+    }
+    
+    .final-section .container {
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* УЛУЧШАЕМ ПОКАЗ ФОНА НА КОМПЬЮТЕРЕ */
+    body::before {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
 }
+        
 
 .story-content h3,
 .detail-card h3,
