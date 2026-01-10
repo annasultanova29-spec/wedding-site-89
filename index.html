@@ -130,7 +130,59 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* ===== АНИМАЦИИ ДЛЯ МЕРЦАНИЯ ===== */
+@keyframes gentleGlassGlow {
+    0%, 100% {
+        box-shadow: 
+            0 8px 25px rgba(0, 0, 0, 0.1),
+            0 0 15px rgba(255, 255, 255, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 12px 35px rgba(0, 0, 0, 0.15),
+            0 0 20px rgba(255, 255, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
 
+@keyframes gentleShimmer {
+    0% {
+        opacity: 0.2;
+        background-position: -150% center;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.25;
+        background-position: 150% center;
+    }
+}
+
+@keyframes gentleGlowMobile {
+    0%, 100% {
+        box-shadow: 
+            0 5px 15px rgba(0, 0, 0, 0.08),
+            0 0 8px rgba(255, 255, 255, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 
+            0 8px 20px rgba(0, 0, 0, 0.12),
+            0 0 12px rgba(255, 255, 255, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
+
+@keyframes shimmerMobile {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
         /* ===== ГЛАВНЫЙ ЭКРАН ===== */
   .hero-section {
     min-height: 100vh;
