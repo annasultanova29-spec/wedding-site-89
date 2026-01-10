@@ -146,6 +146,23 @@
     background-attachment: fixed; /* ← ДОБАВИТЬ эту строку */
     z-index: 1;
 }
+        /* ПАРАЛЛАКС ДЛЯ ВСЕХ УСТРОЙСТВ */
+.hero-section,
+body::before {
+    background-attachment: fixed !important;
+}
+
+/* ФИКС ДЛЯ iOS/МОБИЛЬНЫХ */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+    
+    body::before {
+        background-attachment: scroll !important;
+    }
+}
         .hero-content {
             animation: fadeIn 1.5s ease-out;
         }
