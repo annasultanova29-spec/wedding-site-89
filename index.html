@@ -2111,8 +2111,8 @@ body::before {
 }
 
 
-/* ===== МАТОВОЕ СТЕКЛО С НЕЖНЫМ МЕРЦАНИЕМ ===== */
-/* Общие стили для всех карточек */
+/* ===== МАТОВОЕ СТЕКЛО С МЕРЦАНИЕМ (РАБОЧАЯ ВЕРСИЯ) ===== */
+/* 1. Сначала задаем ОСНОВНЫЕ стили для карточек */
 .welcome-card,
 .story-content,
 .detail-card,
@@ -2120,17 +2120,17 @@ body::before {
 .rsvp-form,
 .chat-card,
 .love-equation {
-    background: rgba(255, 255, 255, 0.05) !important; /* БОЛЕЕ ПРОЗРАЧНЫЕ */
-    backdrop-filter: blur(25px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 25px !important;
-    position: relative !important;
-    overflow: hidden !important;
-    animation: gentleGlassGlow 10s ease-in-out infinite !important; /* УВЕЛИЧИЛИ ВРЕМЯ */
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.07) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    animation: gentleGlassGlow 8s ease-in-out infinite !important;
 }
 
-/* Слой для внутреннего свечения - СДЕЛАЕМ МЕНЬШЕ */
+/* 2. Слой для внутреннего свечения (мерцание) */
 .welcome-card::before,
 .story-content::before,
 .detail-card::before,
@@ -2140,54 +2140,27 @@ body::before {
 .love-equation::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 25px;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 50%,
-        rgba(255, 255, 255, 0.08) 100%
+        45deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%,
+        rgba(255, 255, 255, 0.1) 100%
     );
+    background-size: 400% 400%;
     z-index: 1;
     pointer-events: none;
-    animation: gentleShimmer 8s ease-in-out infinite alternate; /* БОЛЕЕ МЕДЛЕННО */
+    animation: gentleShimmer 6s ease-in-out infinite alternate;
+    opacity: 0.4;
+    border-radius: 30px;
 }
 
-/* НЕЖНОЕ мерцание - УМЕНЬШИЛИ ЭФФЕКТ */
-@keyframes gentleGlassGlow {
-    0%, 100% {
-        box-shadow: 
-            0 8px 25px rgba(0, 0, 0, 0.1),  /* УМЕНЬШИЛИ */
-            0 0 15px rgba(255, 255, 255, 0.06), /* УМЕНЬШИЛИ */
-            inset 0 1px 0 rgba(255, 255, 255, 0.1); /* УМЕНЬШИЛИ */
-    }
-    50% {
-        box-shadow: 
-            0 12px 35px rgba(0, 0, 0, 0.15), /* УМЕНЬШИЛИ */
-            0 0 20px rgba(255, 255, 255, 0.1), /* УМЕНЬШИЛИ */
-            inset 0 1px 0 rgba(255, 255, 255, 0.15); /* УМЕНЬШИЛИ */
-    }
-}
-
-/* НЕЖНОЕ внутреннее сияние */
-@keyframes gentleShimmer {
-    0% {
-        opacity: 0.2;
-        background-position: -150% center;
-    }
-    50% {
-        opacity: 0.3;
-    }
-    100% {
-        opacity: 0.25;
-        background-position: 150% center;
-    }
-}
-
-/* Чтобы текст был поверх эффекта */
+/* 3. Чтобы контент был поверх эффекта */
 .welcome-card > *,
 .story-content > *,
 .detail-card > *,
@@ -2199,40 +2172,65 @@ body::before {
     z-index: 2;
 }
 
-/* Особые настройки для каждой карточки - СДЕЛАЕМ ЕЩЕ ПРОЗРАЧНЕЕ */
+/* 4. Индивидуальные настройки */
 .welcome-card {
-    background: rgba(255, 255, 255, 0.07) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    animation-duration: 10s !important;
 }
 
 .story-content {
     background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    animation-delay: 0.5s !important;
 }
 
 .detail-card {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    animation-delay: 1s !important;
 }
 
 .program-item {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    animation-delay: 1.5s !important;
 }
 
 .rsvp-form {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    animation-delay: 2s !important;
 }
 
 .chat-card {
-    background: rgba(255, 255, 255, 0.09) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    animation-delay: 2.5s !important;
 }
 
 .love-equation {
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    animation-delay: 3s !important;
+}
+
+/* 5. Для мобильных - более заметное мерцание */
+@media (max-width: 768px) {
+    .welcome-card,
+    .story-content,
+    .detail-card,
+    .program-item,
+    .rsvp-form,
+    .chat-card,
+    .love-equation {
+        background: rgba(255, 255, 255, 0.08) !important;
+        animation: gentleGlowMobile 6s ease-in-out infinite !important;
+    }
+    
+    .welcome-card::before,
+    .story-content::before,
+    .detail-card::before,
+    .program-item::before,
+    .rsvp-form::before,
+    .chat-card::before,
+    .love-equation::before {
+        animation: shimmerMobile 4s ease-in-out infinite alternate;
+        opacity: 0.5;
+    }
 }
 .story-content h3,
 .detail-card h3,
