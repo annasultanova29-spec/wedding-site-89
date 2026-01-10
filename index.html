@@ -132,20 +132,20 @@
         }
 
         /* ===== ГЛАВНЫЙ ЭКРАН ===== */
-        .hero-section {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('assets/images/proposal-bg.jpg') center/cover no-repeat;
-            z-index: 1;
-        }
-
+     .hero-section {
+    min-height: 100vh; /* ← ИЗМЕНИТЬ с height на min-height */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('assets/images/proposal-bg.jpg') center/cover no-repeat;
+    background-attachment: fixed; /* ← ДОБАВИТЬ эту строку */
+    z-index: 1;
+}
         .hero-content {
             animation: fadeIn 1.5s ease-out;
         }
