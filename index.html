@@ -3162,6 +3162,33 @@ function initRSVPForm() {
         background-position: center center !important;
     }
 }
+        /* ФИКС ВИДЕО НА МОБИЛЬНЫХ */
+    .video-background video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
+}
+
+/* ===== ФИКСЫ ДЛЯ КОМПЬЮТЕРА ===== */
+@media (min-width: 769px) {
+    /* ФИКС ДЛЯ ФОТО НА КОМПЬЮТЕРЕ - показываем верхнюю часть */
+    .hero-background img {
+        object-position: center 30% !important;
+    }
+    
+    /* ФИКС ДЛЯ ВИДЕО НА КОМПЬЮТЕРЕ - показываем верхнюю часть */
+    .video-background video {
+        object-position: center 25% !important;
+    }
+    
+    /* ФИКС РАЗМЕРА ФИНАЛЬНОГО БЛОКА */
+    .final-section {
+        height: 100vh !important;
+    }
+}
+
 </style>
 
 </body>
