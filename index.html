@@ -3062,6 +3062,24 @@ function initRSVPForm() {
         margin: 0 auto 20px !important;
     }
 }
+        /* ПАРАЛЛАКС ДЛЯ МОБИЛЬНЫХ */
+    .hero-section {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+    
+    body::before {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+    
+    /* ФИКС ВИДЕО НА МОБИЛЬНЫХ */
+    .video-background video {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+    }
 </style>
 
 </body>
