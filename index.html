@@ -2960,6 +2960,7 @@ function initRSVPForm() {
         }, { once: true });
     }
 
+   
     // ===== УПРАВЛЕНИЕ ВИДЕО =====
     function initVideoBackground() {
         console.log('🎬 Инициализация видео фона...');
@@ -2970,7 +2971,7 @@ function initRSVPForm() {
             return;
         }
         
-        const videoPath = 'assets/videos/wedding-video.mp4';
+        const videoPath = 'assets/video/wedding-video.mp4'; // ОБРАТИТЕ ВНИМАНИЕ: 'video', а не 'videos'
         
         // Проверяем доступность видео
         const testVideo = document.createElement('video');
@@ -2984,7 +2985,7 @@ function initRSVPForm() {
         };
         testVideo.onerror = function() {
             console.log(`❌ Видео не найдено: ${videoPath}`);
-            console.log('💡 Проверьте путь к видео файлу');
+            console.log('💡 Используем фото фон');
             document.querySelector('.final-section').classList.add('video-error');
         };
         testVideo.src = videoPath;
@@ -3006,9 +3007,7 @@ function initRSVPForm() {
             this.style.opacity = '1';
         });
     }
-  
-
-</script>
+ </script>
 
 <style>
 /* САМЫЕ ВАЖНЫЕ ФИКСЫ ДЛЯ ТЕЛЕФОНА */
