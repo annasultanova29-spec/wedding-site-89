@@ -1983,11 +1983,8 @@ body::before {
         padding: 15px !important;
     }
     
-    /* Общие стили прозрачности для мобильных */
-    body::after {
-        background: rgba(255, 255, 255, 0.08) !important;
-    }
-    
+  @media (max-width: 768px) {
+    /* НЕЖНОЕ МАТОВОЕ СТЕКЛО ДЛЯ МОБИЛЬНЫХ */
     .welcome-card,
     .story-content,
     .detail-card,
@@ -1995,11 +1992,50 @@ body::before {
     .rsvp-form,
     .chat-card,
     .love-equation {
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
-        background: rgba(255, 255, 255, 0.88) !important; /* Чуть менее прозрачные на мобильных */
+        background: rgba(255, 255, 255, 0.06) !important; /* ПРОЗРАЧНОСТЬ */
+        backdrop-filter: blur(15px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        animation: gentleGlowMobile 12s ease-in-out infinite !important;
     }
     
+    /* НЕЖНОЕ МЕРЦАНИЕ ДЛЯ МОБИЛЬНЫХ */
+    @keyframes gentleGlowMobile {
+        0%, 100% {
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                0 0 8px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        50% {
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.12),
+                0 0 12px rgba(255, 255, 255, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+    }
+    
+    /* Уменьшаем эффект ::before на мобильных */
+    .welcome-card::before,
+    .story-content::before,
+    .detail-card::before,
+    .program-item::before,
+    .rsvp-form::before,
+    .chat-card::before,
+    .love-equation::before {
+        animation: shimmerMobile 6s ease-in-out infinite alternate;
+        opacity: 0.3;
+    }
+    
+    @keyframes shimmerMobile {
+        0% {
+            opacity: 0.2;
+        }
+        100% {
+            opacity: 0.4;
+        }
+    }
+}
     .welcome-card {
         padding: 35px 20px !important;
     }
