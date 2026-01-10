@@ -3270,6 +3270,31 @@ function initRSVPForm() {
         object-position: center center !important;
     }
 }
+    /* ФИКС ДЛЯ ТЕЛЕФОНА - ПРОЗРАЧНОСТЬ И МЕРЦАНИЕ */
+@media (max-width: 768px) {
+    .welcome-card,
+    .story-content,
+    .detail-card,
+    .program-item,
+    .rsvp-form,
+    .chat-card,
+    .love-equation {
+        background: rgba(255, 255, 255, 0.06) !important;
+        backdrop-filter: blur(15px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        animation: gentleGlassGlow 10s ease-in-out infinite !important;
+    }
+    
+    /* Убрать белые фоны */
+    .welcome-card,
+    .detail-card,
+    .story-content,
+    .chat-card,
+    .rsvp-form {
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+}
 </style>
 
 </body>
