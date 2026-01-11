@@ -1182,17 +1182,26 @@ body::before {
         }
 
         /* ===== ТАЙМЕР ===== */
-        .countdown-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            text-align: center;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
+     .countdown-section {
+    padding: 120px 0;
+    background: transparent !important; /* ПРОЗРАЧНЫЙ фон */
+    color: var(--dark-text); /* Темный текст для читаемости */
+    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
 
+.countdown-number {
+    background: rgba(255, 255, 255, 0.05); /* ОЧЕНЬ прозрачный */
+    border: 2px solid var(--primary-color); /* Обводка цветом пантоне */
+    color: var(--primary-color); /* Цвет цифр */
+}
+
+.countdown-number:hover {
+    background: rgba(138, 122, 98, 0.1); /* Легкая заливка при наведении */
+}
         .countdown-section::before {
             content: '';
             position: absolute;
