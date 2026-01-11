@@ -2449,6 +2449,37 @@ body,
 .location-info h4 {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
+        /* ФИКС ИКОНОК - САМЫЙ ВЫСОКИЙ ПРИОРИТЕТ */
+.program-section .program-item .program-icon i.fas {
+    color: white !important;
+    font-family: "Font Awesome 6 Free" !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.music-btn i.fas.fa-music {
+    color: white !important;
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+/* УБЕДИТЕСЬ что иконки отображаются */
+i.fas {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+/* АЛЬТЕРНАТИВА: если Font Awesome не загрузился */
+.program-icon::before {
+    content: "🎉";
+    font-size: 1.8rem;
+    display: none; /* Сначала скрыть */
+}
+
+.program-icon.fallback-icon::before {
+    display: block;
+}
+.program-icon.fallback-icon i {
+    display: none;
+}
         }</style>
 </head>
 <body>
