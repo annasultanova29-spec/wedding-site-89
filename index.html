@@ -2330,6 +2330,103 @@ body::before {
         opacity: 0.5;
     }
 }
+/* ===== АВТОМАТИЧЕСКИЕ ИСПРАВЛЕНИЯ ===== */
+
+/* Все заголовки на Great Vibes */
+.couple-names,
+.welcome-card h2,
+.section-header h2,
+.story-content h3,
+.child-photo h3,
+.card-header h3,
+.location-info h4,
+.program-content h3,
+.countdown-section h2,
+.rsvp-section h2,
+.chat-card h2,
+.final-title,
+.final-signature,
+.loading-content h1 {
+    font-family: var(--font-heading) !important;
+}
+
+/* Все остальные тексты на Lora */
+body,
+.welcome-text,
+.story-content p,
+.child-photo p,
+.location-info p,
+.program-content p,
+.form-group input,
+.form-group textarea,
+.radio-text,
+.chat-card p,
+.final-date,
+.wedding-date,
+.wedding-time,
+.invitation-label,
+.love-equation,
+.ceremony-time,
+.ceremony-address,
+.ceremony-details,
+.section-subtitle {
+    font-family: var(--font-body) !important;
+}
+
+/* Убрать uppercase с заголовков */
+.invitation-label,
+.welcome-card h2,
+.section-header h2,
+.card-header h3,
+.location-info h4,
+.chat-card h2,
+.final-title,
+.final-signature {
+    text-transform: none !important;
+    letter-spacing: 1px !important;
+}
+
+/* Увеличить размер для компенсации прописных букв */
+.invitation-label {
+    font-size: 1.8rem !important;
+}
+
+.welcome-card h2 {
+    font-size: 2.8rem !important;
+}
+
+.section-header h2 {
+    font-size: 3.2rem !important;
+}
+
+/* Цвета пантоне для всех элементов */
+.highlight,
+.date-number,
+.program-time,
+.card-header,
+.ceremony-time i,
+.story-content h3,
+.location-info h4,
+.chat-icon,
+.year-circle,
+.year-icon,
+.music-btn {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Исправить кнопки форм */
+.submit-btn,
+.chat-btn {
+    background: var(--primary-color) !important;
+    color: white !important;
+    font-family: var(--font-heading) !important;
+}
+
+.submit-btn:hover,
+.chat-btn:hover {
+    background: var(--accent-color) !important;
+}        
 .story-content h3,
 .detail-card h3,
 .program-content h3,
