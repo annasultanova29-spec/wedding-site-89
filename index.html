@@ -1158,6 +1158,37 @@ body::before {
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(138, 122, 98, 0.3);
 }
+        /* Исправить цвет иконок в программе */
+.program-icon i {
+    color: white !important;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Также исправить кнопку музыки */
+.music-btn i {
+    color: white !important;
+    font-size: 1.8rem;
+}
+
+/* Сделать более заметными на темном фоне */
+.program-icon i.fa-glass-cheers,
+.program-icon i.fa-heart,
+.program-icon i.fa-utensils,
+.program-icon i.fa-music {
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+    .program-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .music-btn i {
+        font-size: 1.5rem;
+    }
+}
         /* ===== ТАЙМЕР ===== */
      .countdown-section {
     padding: 120px 0;
