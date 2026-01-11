@@ -3102,13 +3102,31 @@ function loadLocalPhotos() {
         }
     ];
     
-    // Загружаем фото в Polaroid-рамки
+   // ===== ЗАГРУЗКА ФОТО В ПОЛЯРОИДНЫЕ РАМКИ =====
+function loadLocalPhotos() {
+    console.log('📸 Загрузка фотографий для Polaroid-рамок...');
+    
+    // 1. ФОТО ДЛЯ ПОЛЯРОИДНЫХ РАМОК
+    const polaroidPhotos = [
+        {
+            id: 'polaroid-kristalina',
+            url: 'assets/images/child-bride.jpg',
+            fallback: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
+        },
+        {
+            id: 'polaroid-alexander',
+            url: 'assets/images/child-groom.jpg',
+            fallback: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
+        }
+    ];
+    
+    // Загружаем каждое фото в свою рамку
     polaroidPhotos.forEach(photo => {
         const element = document.getElementById(photo.id);
         if (element) {
             const img = new Image();
             img.onload = function() {
-                console.log(`✅ Polaroid фото загружено: ${photo.url}`);
+                console.log(`✅ Фото загружено в Polaroid: ${photo.url}`);
                 element.style.backgroundImage = `url('${photo.url}')`;
                 element.style.backgroundSize = 'cover';
                 element.style.backgroundPosition = 'center';
@@ -3116,22 +3134,25 @@ function loadLocalPhotos() {
             img.onerror = function() {
                 console.log(`❌ Ошибка загрузки фото: ${photo.url}`);
                 element.style.backgroundImage = `url('${photo.fallback}')`;
+                element.style.backgroundSize = 'cover';
+                element.style.backgroundPosition = 'center';
             };
             img.src = photo.url;
         } else {
-            console.log(`❌ Элемент не найден: ${photo.id}`);
+            console.log(`❌ Не найден элемент для фото: ${photo.id}`);
         }
     });
     
-    // 2. ПРОВЕРЯЕМ SVG-РАМКУ
-    const svgFrame = new Image();
-    svgFrame.onload = function() {
-        console.log('✅ SVG-рамка загружена: assets/images/polaroid-frame.png');
+    // 2. ПРОВЕРЯЕМ PNG-РАМКУ (УБРАЛ ЛИШНЮЮ СКОБКУ!)
+    const pngFrame = new Image();
+    pngFrame.onload = function() {
+        console.log('✅ PNG-рамка загружена: assets/images/polaroid-frame.png');
     };
-    svgFrame.onerror = function() {
-        console.log('❌ SVG-рамка не найдена: assets/images/polaroid-frame.png');
+    pngFrame.onerror = function() {
+        console.log('❌ Ошибка загрузки PNG-рамки. Проверьте путь: assets/images/polaroid-frame.png');
     };
-    svgFrame.src = 'assets/images/polaroid-frame.png');    
+    pngFrame.src = 'assets/images/polaroid-frame.png'; // УБРАЛ ЛИШНЮЮ СКОБКУ ) в конце
+    
     // 3. ПРОВЕРЯЕМ ФОНОВЫЕ ФОТО (если нужно)
     const bgPhotos = [
         'assets/images/proposal-bg.jpg',
@@ -3149,7 +3170,7 @@ function loadLocalPhotos() {
         };
         img.src = path;
     });
-}     
+}
     // ===== АНИМАЦИИ ПРИ СКРОЛЛЕ =====
     function initAnimations() {
         const observerOptions = {
