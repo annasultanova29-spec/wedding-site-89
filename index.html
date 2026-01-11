@@ -3127,7 +3127,58 @@ body,
             img.src = path;
         });
     }
-
+     // ===== ЗАГРУЗКА ФОТО В ПОЛЯРОИДНЫЕ РАМКИ =====
+function loadLocalPhotos() {
+    console.log('📸 Загрузка фотографий для Polaroid-рамок...');
+    
+    // Массив фото - ПУТИ ОСТАЮТСЯ ПРЕЖНИМИ!
+    const polaroidPhotos = [
+        {
+            id: 'polaroid-kristalina',
+            url: 'assets/images/child-bride.jpg', // Ваш путь
+            fallback: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
+        },
+        {
+            id: 'polaroid-alexander', 
+            url: 'assets/images/child-groom.jpg', // Ваш путь
+            fallback: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
+        }
+    ];
+    
+    // Загружаем каждое фото в свою рамку
+    polaroidPhotos.forEach(photo => {
+        const element = document.getElementById(photo.id);
+        if (!element) {
+            console.log(`❌ Не найден элемент для фото: ${photo.id}`);
+            return;
+        }
+        
+        const img = new Image();
+        img.onload = function() {
+            console.log(`✅ Фото загружено в Polaroid: ${photo.url}`);
+            element.style.backgroundImage = `url('${photo.url}')`;
+            element.style.backgroundSize = 'cover';
+            element.style.backgroundPosition = 'center';
+        };
+        img.onerror = function() {
+            console.log(`❌ Ошибка загрузки фото: ${photo.url}`);
+            element.style.backgroundImage = `url('${photo.fallback}')`;
+            element.style.backgroundSize = 'cover';
+            element.style.backgroundPosition = 'center';
+        };
+        img.src = photo.url;
+    });
+    
+    // Проверяем загрузку SVG-рамки
+    const svgFrame = new Image();
+    svgFrame.onload = function() {
+        console.log('✅ SVG-рамка загружена: assets/images/polaroid-frame.svg');
+    };
+    svgFrame.onerror = function() {
+        console.log('❌ Ошибка загрузки SVG-рамки. Проверь путь: assets/images/polaroid-frame.svg');
+    };
+    svgFrame.src = 'assets/images/polaroid-frame.svg';
+}
     // ===== АНИМАЦИИ ПРИ СКРОЛЛЕ =====
     function initAnimations() {
         const observerOptions = {
