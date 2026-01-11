@@ -1506,27 +1506,56 @@ body::before {
             color: var(--primary-blue);
         }
 
-        .chat-btn {
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-top: 40px;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            border: none;
-            cursor: pointer;
-        }
+     
+.chat-btn {
+    display: inline-block;
+    padding: 18px 50px;
+    background: var(--primary-color) !important; /* Сплошной цвет пантоне */
+    color: white !important;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    transition: all 0.3s ease;
+    font-family: var(--font-heading) !important; /* Great Vibes */
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
 
-        .chat-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(128, 207, 255, 0.3);
-        }
+.chat-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(138, 122, 98, 0.4);
+    background: var(--accent-color) !important; /* Темнее при наведении */
+}
 
+/* Металлический блеск */
+.chat-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 80%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: rotate(30deg);
+    animation: metalShine 3s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes metalShine {
+    0% { transform: rotate(30deg) translateX(-100%); }
+    100% { transform: rotate(30deg) translateX(100%); }
+}
         /* ===== ФИНАЛЬНЫЙ БЛОК С ВИДЕО ===== */
         .final-section {
             padding: 0;
