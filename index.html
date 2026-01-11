@@ -2422,13 +2422,25 @@ body,
 .location-info h4,
 .chat-icon,
 .year-circle,
-.year-icon,
-.music-btn {
+.year-icon {
     color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
 }
+/* Явно задать белый цвет для иконок в кнопке музыки */
+.music-btn i,
+.music-btn i.fas,
+.music-btn i.fa-music {
+    color: white !important;
+    font-size: 1.8rem;
+}
 
-/* Исправить кнопки форм */
+/* Для кружков программы тоже явно задать цвет */
+.program-icon i,
+.program-icon i.fas {
+    color: white !important;
+    font-size: 1.8rem;
+}
+        /* Исправить кнопки форм */
 .submit-btn,
 .chat-btn {
     background: var(--primary-color) !important;
