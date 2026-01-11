@@ -1750,31 +1750,32 @@ body::before {
         }
 
         /* ===== КНОПКА МУЗЫКИ ===== */
-        .music-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
+     .music-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: transparent; /* ПРОЗРАЧНЫЙ фон */
+    color: var(--primary-color); /* Цвет иконки */
+    border: 3px solid var(--primary-color); /* Обводка */
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(138, 122, 98, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
 
-        .music-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(138, 122, 98, 0.3);
+    background: rgba(138, 122, 98, 0.1); /* Легкая заливка при наведении */
+}
         /* ===== АДАПТИВНОСТЬ ===== */
         @media (max-width: 992px) {
             .couple-names {
