@@ -1167,20 +1167,20 @@ body::before {
             font-size: 1.1rem;
         }
 
-        .program-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            box-shadow: 0 10px 20px rgba(128, 207, 255, 0.3);
-        }
-
+     .program-icon {
+    width: 70px;
+    height: 70px;
+    background: transparent; /* ПРОЗРАЧНЫЙ */
+    border-radius: 50%;
+    border: 3px solid var(--primary-color); /* Только обводка */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color); /* Цвет иконки */
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(138, 122, 98, 0.1);
+}
         /* ===== ТАЙМЕР ===== */
      .countdown-section {
     padding: 120px 0;
