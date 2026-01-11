@@ -1046,8 +1046,8 @@ body::before {
     gap: 10px;
     padding: 15px 30px;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-    text-decoration: none;
+    color: white !important; /* ← ДОБАВИТЬ !important */
+    text-decoration: none !important; /* ← ДОБАВИТЬ !important */
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
@@ -1062,8 +1062,8 @@ body::before {
 .map-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(128, 207, 255, 0.3);
+    color: white !important; /* ← ДОБАВИТЬ */
 }
-
 /* ===== ПРОГРАММА ===== */   ← ЭТА СТРОКА УЖЕ ЕСТЬ
 .program-section {
     padding: 120px 0;
