@@ -3108,10 +3108,10 @@ function loadLocalPhotos() {
     // 2. ПРОВЕРЯЕМ SVG-РАМКУ
     const svgFrame = new Image();
     svgFrame.onload = function() {
-        console.log('✅ SVG-рамка загружена: assets/images/polaroid-frame.svg');
+        console.log('✅ SVG-рамка загружена: assets/images/polaroid-frame.png');
     };
     svgFrame.onerror = function() {
-        console.log('❌ SVG-рамка не найдена: assets/images/polaroid-frame.svg');
+        console.log('❌ SVG-рамка не найдена: assets/images/polaroid-frame.png');
     };
     svgFrame.src = 'assets/images/polaroid-frame.svg';
     
