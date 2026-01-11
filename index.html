@@ -3083,26 +3083,7 @@ body,
             });
         });
     });
-
 // ===== ЗАГРУЗКА ФОТО =====
-function loadLocalPhotos() {
-    console.log('📸 Загрузка фотографий...');
-    
-    // 1. ФОТО ДЛЯ ПОЛЯРОИДНЫХ РАМОК
-    const polaroidPhotos = [
-        {
-            id: 'polaroid-kristalina',
-            url: 'assets/images/child-bride.jpg',
-            fallback: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
-        },
-        {
-            id: 'polaroid-alexander',
-            url: 'assets/images/child-groom.jpg',
-            fallback: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80'
-        }
-    ];
-    
-   // ===== ЗАГРУЗКА ФОТО В ПОЛЯРОИДНЫЕ РАМКИ =====
 function loadLocalPhotos() {
     console.log('📸 Загрузка фотографий для Polaroid-рамок...');
     
@@ -3143,7 +3124,7 @@ function loadLocalPhotos() {
         }
     });
     
-    // 2. ПРОВЕРЯЕМ PNG-РАМКУ (УБРАЛ ЛИШНЮЮ СКОБКУ!)
+    // 2. ПРОВЕРЯЕМ PNG-РАМКУ
     const pngFrame = new Image();
     pngFrame.onload = function() {
         console.log('✅ PNG-рамка загружена: assets/images/polaroid-frame.png');
@@ -3151,7 +3132,7 @@ function loadLocalPhotos() {
     pngFrame.onerror = function() {
         console.log('❌ Ошибка загрузки PNG-рамки. Проверьте путь: assets/images/polaroid-frame.png');
     };
-    pngFrame.src = 'assets/images/polaroid-frame.png'; // УБРАЛ ЛИШНЮЮ СКОБКУ ) в конце
+    pngFrame.src = 'assets/images/polaroid-frame.png';
     
     // 3. ПРОВЕРЯЕМ ФОНОВЫЕ ФОТО (если нужно)
     const bgPhotos = [
@@ -3171,6 +3152,7 @@ function loadLocalPhotos() {
         img.src = path;
     });
 }
+
     // ===== АНИМАЦИИ ПРИ СКРОЛЛЕ =====
     function initAnimations() {
         const observerOptions = {
@@ -3200,7 +3182,7 @@ function loadLocalPhotos() {
             observer.observe(el);
         });
     }
-
+  
     // ===== ТАЙМЕР ОБРАТНОГО ОТСЧЕТА =====
     function initCountdown() {
         const weddingDate = new Date('February 8, 2026 17:00:00').getTime();
