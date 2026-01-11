@@ -1772,20 +1772,20 @@ body::before {
         }
 
         /* ===== КНОПКА МУЗЫКИ ===== */
-     .music-btn {
+  .music-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     width: 60px;
     height: 60px;
-    background: transparent; /* ПРОЗРАЧНЫЙ фон */
-    color: var(--primary-color); /* Цвет иконки */
-    border: 3px solid var(--primary-color); /* Обводка */
+    background: rgba(255, 255, 255, 0.9) !important; /* БЕЛЫЙ фон */
+    color: var(--primary-color) !important; /* Цвет иконки */
+    border: 3px solid var(--primary-color) !important; /* Обводка */
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(138, 122, 98, 0.2);
+    box-shadow: 0 4px 12px rgba(138, 122, 98, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1795,8 +1795,9 @@ body::before {
 
 .music-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(138, 122, 98, 0.3);
-    background: rgba(138, 122, 98, 0.1); /* Легкая заливка при наведении */
+    box-shadow: 0 6px 20px rgba(138, 122, 98, 0.5);
+    background: var(--primary-color) !important; /* Цвет пантоне при наведении */
+    color: white !important; /* Белая иконка при наведении */
 }
         /* ===== АДАПТИВНОСТЬ ===== */
         @media (max-width: 992px) {
