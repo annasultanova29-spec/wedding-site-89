@@ -732,19 +732,6 @@ body::before {
     filter: brightness(0.95); /* Только яркость, убрал contrast и saturate */
 }
 
-/* БЕЛАЯ прозрачная маска поверх видео - ИСПРАВЛЕНО */
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.15); /* БЕЛЫЙ цвет, не черный! */
-    backdrop-filter: blur(1px);
-    pointer-events: none;
-    /* УБРАТЬ mix-blend-mode: overlay; - он делает черным */
-}
-
 /* Запасной вариант, если видео не загрузится */
 .video-fallback {
     position: absolute;
