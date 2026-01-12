@@ -3345,11 +3345,10 @@ if (loveVideo) {
     }
 
     // ===== ОТПРАВКА ФОРМЫ В TELEGRAM =====
-     /*
-async function sendToTelegram(formData) {
-    const BOT_TOKEN = '8594126154:AAG9CeYY1ns1mRVkiTybOsbyFw2D6Jyd5wY';
-    const CHAT_ID = '-1003670132413';
-    */
+    async function sendToTelegram(formData) {
+    // ВРЕМЕННО ЗАКОММЕНТИРОВАНО
+    // const BOT_TOKEN = '8594126154:AAG9CeYY1ns1mRVkiTybOsbyFw2D6Jyd5wY';
+    // const CHAT_ID = '-1003670132413';
     
     let message = `📋 НОВАЯ ЗАЯВКА НА СВАДЬБУ!\n\n`;
     message += `👤 Имя: ${formData.name} ${formData.surname}\n`;
@@ -3383,6 +3382,7 @@ async function sendToTelegram(formData) {
     message += `\n📅 Дата отправки: ${new Date().toLocaleString('ru-RU')}`;
     
     try {
+        // ВРЕМЕННО ЗАКОММЕНТИРОВАНО - не отправляем в Telegram
         /*
         const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
@@ -3406,13 +3406,17 @@ async function sendToTelegram(formData) {
             return false;
         }
         */
+       
+        // Временная замена: просто логируем в консоль
+        console.log('📋 Данные формы (Telegram временно отключен):', message);
+        return true; // возвращаем true чтобы форма "успешно отправлялась"
+        
     } catch (error) {
-        console.error('❌ Ошибка сети:', error);
+        console.error('❌ Ошибка:', error);
         return false;
     }
 }
-
-// ===== ОБНОВЛЕННАЯ ФУНКЦИЯ ОБРАБОТКИ ФОРМЫ =====
+     // ===== ОБНОВЛЕННАЯ ФУНКЦИЯ ОБРАБОТКИ ФОРМЫ =====
 function initRSVPForm() {
     const form = document.getElementById('rsvp-form');
     const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
