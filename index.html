@@ -623,18 +623,18 @@ body::before {
 }
 
 /* =========================================== */
-/* ПОЛЯРОИДНЫЕ РАМКИ (ВМЕСТО КРУЖКОВ) */
+/* ПОЛЯРОИДНЫЕ РАМКИ - ВАШИ РАЗМЕРЫ */
 /* =========================================== */
 
 /* КОНТЕЙНЕР ДЛЯ ВСЕЙ РАМКИ */
 .polaroid-container {
     position: relative;
-    width: 280px;          /* Такой же размер, как у кружков */
-    height: 280px;         /* Квадрат как кружок */
-    margin: 0 auto 30px;   /* Центрируем и отступ снизу */
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 30px;
 }
 
-/* SVG-РАМКА (базовая настройка) */
+/* PNG-РАМКА */
 .polaroid-frame-svg {
     width: 100%;
     height: 100%;
@@ -645,36 +645,34 @@ body::before {
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ФОТО ВНУТРИ РАМКИ */
+/* ФОТО ВНУТРИ РАМКИ - ВАШИ РАЗМЕРЫ */
 .polaroid-photo {
     position: absolute;
-    top: 0;           /* Без отступа */
-    left: 0;          /* Без отступа */
-    width: 100%;      /* На всю ширину */
-    height: 100%;     /* На всю высоту */
-    border-radius: 0; /* Без скругления */
-    overflow: visible; /* Показываем все */
+    top: 15px;       /* Ваш отступ */
+    left: 15px;      /* Ваш отступ */
+    width: 250px;    /* Ваша ширина */
+    height: 250px;   /* Ваша высота */
+    border-radius: 2px;
+    overflow: hidden;
     z-index: 0;
     background-size: cover;
     background-position: center;
     background-color: #f5f5f5;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    /* Обрезка по рамке */
-    clip-path: inset(15px 15px 40px 15px); /* обрезаем сверху/снизу/слева/справа */
 }
 
 /* ПОДПИСЬ НА РАМКЕ */
 .polaroid-label {
     position: absolute;
-    bottom: 20px;           /* Над нижним краем рамки */
+    bottom: 20px;
     left: 0;
     right: 0;
     text-align: center;
-    font-family: var(--font-heading); /* Great Vibes */
+    font-family: var(--font-heading);
     font-size: 1.4rem;
-    color: var(--primary-color);      /* Цвет из вашей палитры */
-    z-index: 2;                       /* Поверх всего */
-    pointer-events: none;             /* Не мешает кликам */
+    color: var(--primary-color);
+    z-index: 2;
+    pointer-events: none;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
@@ -691,7 +689,7 @@ body::before {
 }
 
 /* =========================================== */
-/* ВИДЕО КАРТОЧКА О ЛЮБВИ */
+/* ВИДЕО КАРТОЧКА О ЛЮБВИ - ИСПРАВЛЕННАЯ */
 /* =========================================== */
 .video-love-card {
     flex: 0 0 auto;
@@ -725,26 +723,26 @@ body::before {
     border-radius: 20px;
 }
 
-/* Само видео */
+/* Само видео - ИСПРАВЛЕНО: уберите filter или используйте только brightness */
 .love-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.9) contrast(1.1) saturate(0.9);
+    filter: brightness(0.95); /* Только яркость, убрал contrast и saturate */
 }
 
-/* Белая прозрачная маска поверх видео */
+/* БЕЛАЯ прозрачная маска поверх видео - ИСПРАВЛЕНО */
 .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(2px);
+    background: rgba(255, 255, 255, 0.15); /* БЕЛЫЙ цвет, не черный! */
+    backdrop-filter: blur(1px);
     pointer-events: none;
-    mix-blend-mode: overlay;
+    /* УБРАТЬ mix-blend-mode: overlay; - он делает черным */
 }
 
 /* Запасной вариант, если видео не загрузится */
@@ -761,8 +759,9 @@ body::before {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--primary-color);
-    background: linear-gradient(135deg, rgba(138, 122, 98, 0.1), rgba(106, 94, 74, 0.1));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
     display: none; /* По умолчанию скрыто */
+    border-radius: 20px;
 }
 
 .video-fallback .heart-pulse {
@@ -771,7 +770,40 @@ body::before {
     animation: gentlePulse 2s infinite;
 }
 
-/* Обновляем структуру для мобильных */
+/* Обновляем структуру для мобильных - ВАШИ РАЗМЕРЫ */
+@media (max-width: 768px) {
+    .polaroid-container {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .polaroid-photo {
+        top: 12px;
+        left: 12px;
+        width: 216px;
+        height: 216px;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid-container {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .polaroid-photo {
+        top: 10px;
+        left: 10px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .polaroid-label {
+        font-size: 1.2rem;
+        bottom: 15px;
+    }
+}
+
 @media (max-width: 992px) {
     .childhood-content {
         flex-direction: column;
@@ -792,15 +824,6 @@ body::before {
         order: 3;
     }
     
-    .polaroid-container {
-        width: 240px;
-        height: 240px;
-    }
-    
-    .polaroid-photo {
-        clip-path: inset(12px 12px 35px 12px);
-    }
-    
     .love-video-container {
         height: 250px;
     }
@@ -812,20 +835,6 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .polaroid-container {
-        width: 220px;
-        height: 220px;
-    }
-    
-    .polaroid-photo {
-        clip-path: inset(10px 10px 30px 10px);
-    }
-    
-    .polaroid-label {
-        font-size: 1.2rem;
-        bottom: 15px;
-    }
-    
     .love-video-container {
         height: 200px;
     }
@@ -840,7 +849,7 @@ body::before {
     color: var(--red-heart);
     font-size: 2.5rem;
     animation: gentlePulse 2s infinite;
-}     
+}
         /* ===== ДАТА И МЕСТО ===== */
         .details-section {
             padding: 120px 0;
