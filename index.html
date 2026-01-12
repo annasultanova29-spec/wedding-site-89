@@ -3040,89 +3040,89 @@ body,
         </div>
     </section>
 
-    <!-- Анкета гостя -->
-    <section class="rsvp-section" id="rsvp">
-        <div class="container">
-            <div class="section-header">
-                <h2>Подтвердите участие</h2>
-                <p class="section-subtitle">Пожалуйста, заполните форму до 15 января 2026</p>
+   <!-- Анкета гостя -->
+<section class="rsvp-section" id="rsvp">
+    <div class="container">
+        <div class="section-header">
+            <h2>Подтвердите участие</h2>
+            <p class="section-subtitle">Пожалуйста, заполните форму до 15 января 2026</p>
+        </div>
+        
+        <form id="rsvp-form" class="rsvp-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="surname" name="surname" placeholder="Ваша фамилия" required>
+                </div>
             </div>
             
-            <form id="rsvp-form" class="rsvp-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="surname" name="surname" placeholder="Ваша фамилия" required>
-                    </div>
+            <div class="form-group">
+                <label>Подтвердите присутствие:</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="attendance" value="alone" checked>
+                        <span class="radio-custom"></span>
+                        <span class="radio-text">Приду один/одна ✅</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attendance" value="with_partner">
+                        <span class="radio-custom"></span>
+                        <span class="radio-text">Приду с парой / семьёй 👥</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="attendance" value="decline">
+                        <span class="radio-custom"></span>
+                        <span class="radio-text">Не смогу прийти ❌</span>
+                    </label>
                 </div>
-                
-                <div class="form-group">
-                    <label>Подтвердите присутствие:</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="alone" checked>
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Приду один/одна ✅</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="with_partner">
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Приду с парой / семьёй 👥</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="decline">
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Не смогу прийти ❌</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="form-group" id="partner-field" style="display: none;">
-                    <input type="text" id="partner_names" name="partner_names" placeholder="Имена тех, с кем планируете прийти">
-                </div>
-                
-                <div class="form-group">
-                    <label>Аллергия / непереносимость на блюда:</label>
-                    <textarea id="allergies" name="allergies" placeholder="Укажите, если есть аллергии или ограничения в питании"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Напитки:</label>
-                    <textarea id="drinks" name="drinks" placeholder="Винные, крепкие алкогольные, соки, безалкогольные, укажите свой вариант"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Пожелания по меню:</label>
-                    <textarea id="menu_wishes" name="menu_wishes" placeholder="Ваши пожелания по блюдам и меню"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Отправить анкету
-                </button>
-            </form>
-        </div>
-    </section>
-    
- <!-- Чат гостей -->
-    <section class="chat-section" id="chat">
-        <div class="container">
-            <div class="chat-card">
-                <div class="chat-icon">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h2>ЧАТ ГОСТЕЙ</h2>
-                <p>Присоединяйтесь к общему чату гостей для обсуждения деталей и общения</p>
-                <p><strong>Контакты для связи:</strong> Кристалина и Александр</p>
-                
-                <!-- Временная замена для Telegram чата -->
-                <a href="#" class="chat-btn" onclick="event.preventDefault(); alert('Чат в Telegram временно недоступен'); return false;">
-                    <i class="fab fa-telegram"></i> Чат временно недоступен
-                </a>
             </div>
+            
+            <div class="form-group" id="partner-field" style="display: none;">
+                <input type="text" id="partner_names" name="partner_names" placeholder="Имена тех, с кем планируете прийти">
+            </div>
+            
+            <div class="form-group">
+                <label>Аллергия / непереносимость на блюда:</label>
+                <textarea id="allergies" name="allergies" placeholder="Укажите, если есть аллергии или ограничения в питании"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Напитки:</label>
+                <textarea id="drinks" name="drinks" placeholder="Винные, крепкие алкогольные, соки, безалкогольные, укажите свой вариант"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Пожелания по меню:</label>
+                <textarea id="menu_wishes" name="menu_wishes" placeholder="Ваши пожелания по блюдам и меню"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Отправить анкету
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Чат гостей -->
+<section class="chat-section" id="chat">
+    <div class="container">
+        <div class="chat-card">
+            <div class="chat-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h2>ЧАТ ГОСТЕЙ</h2>
+            <p>Присоединяйтесь к общему чату гостей для обсуждения деталей и общения</p>
+            <p><strong>Контакты для связи:</strong> Кристалина и Александр</p>
+            
+            <!-- Временная замена для Telegram чата -->
+            <a href="#" class="chat-btn" onclick="event.preventDefault(); alert('Чат в Telegram временно недоступен'); return false;">
+                <i class="fab fa-telegram"></i> Чат временно недоступен
+            </a>
         </div>
-    </section> 
+    </div>
+</section>
     
                 <!-- Финальный блок с видео - ИСПРАВЛЕННАЯ ВЕРСИЯ -->
 <section class="final-section" id="final">
