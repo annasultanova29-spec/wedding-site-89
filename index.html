@@ -3383,6 +3383,7 @@ async function sendToTelegram(formData) {
     message += `\n📅 Дата отправки: ${new Date().toLocaleString('ru-RU')}`;
     
     try {
+        /*
         const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: {
@@ -3404,6 +3405,7 @@ async function sendToTelegram(formData) {
             console.error('❌ Ошибка отправки в Telegram:', data);
             return false;
         }
+        */
     } catch (error) {
         console.error('❌ Ошибка сети:', error);
         return false;
