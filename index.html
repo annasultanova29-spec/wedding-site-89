@@ -2713,17 +2713,24 @@ body,
                 <p>Всегда мечтала о настоящей любви</p>
             </div>
 
-            <!-- СЕРДЕЧКО (уравнение) -->
-            <div class="heart-animation">
-                <div class="love-equation">
-                    <span>Кристалина</span>
-                    <span class="plus">+</span>
-                    <span>Александр</span>
-                    <span class="equals">=</span>
-                    <span class="heart-pulse">❤️</span>
-                </div>
+         
+<!-- ВИДЕО О ЛЮБВИ (вместо сердечка) -->
+<div class="heart-animation video-love-card">
+    <!-- Видео на фоне карточки -->
+    <div class="love-video-container">
+        <video autoplay muted loop playsinline class="love-video">
+            <source src="assets/videos/love-story.mp4" type="video/mp4">
+            <!-- Запасной вариант, если видео не загрузится -->
+            <div class="video-fallback">
+                <span>Кристалина + Александр</span>
+                <span class="heart-pulse">❤️</span>
+                <span>= Любовь</span>
             </div>
-
+        </video>
+        <!-- Белая прозрачная маска поверх видео -->
+        <div class="video-overlay"></div>
+    </div>
+</div>
             <!-- АЛЕКСАНДР -->
             <div class="child-photo">
                 <div class="polaroid-container alexander-frame">
