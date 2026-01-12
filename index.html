@@ -576,93 +576,131 @@ body::before {
             font-size: 1.1rem;
             line-height: 1.7;
         }
+/* ===== БЛОК "МЫ + ЛЮБОВЬ" ===== */
+.childhood-section {
+    padding: 120px 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
 
-        /* ===== БЛОК "МЫ + ЛЮБОВЬ" ===== */
-        .childhood-section {
-            padding: 120px 0;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
+.childhood-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
 
-     
+.child-photo {
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
 
-        .childhood-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
+.child-photo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .child-photo {
-            text-align: center;
-            flex: 1;
-            min-width: 280px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+.child-photo h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
 
-        .child-photo.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.child-photo p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
 
-        .photo-frame {
-            width: 280px;
-            height: 280px;
-            margin: 0 auto 30px;
-            border-radius: 50%;
-            padding: 12px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            position: relative;
-            box-shadow: 0 20px 40px rgba(128, 207, 255, 0.2);
-            animation: gentleFloat 6s ease-in-out infinite;
-        }
+/* =========================================== */
+/* ПОЛЯРОИДНЫЕ РАМКИ (ВМЕСТО КРУЖКОВ) */
+/* =========================================== */
 
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+/* КОНТЕЙНЕР ДЛЯ ВСЕЙ РАМКИ */
+.polaroid-container {
+    position: relative;
+    width: 280px;          /* Такой же размер, как у кружков */
+    height: 280px;         /* Квадрат как кружок */
+    margin: 0 auto 30px;   /* Центрируем и отступ снизу */
+}
 
-        .photo-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 5px solid var(--pure-white);
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #f0f0f0;
-        }
+/* SVG-РАМКА (базовая настройка) */
+.polaroid-frame-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 10px 20px rgba(138, 122, 98, 0.2));
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-        .child-photo h3 {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            color: var(--dark-text);
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
+/* ФОТО ВНУТРИ РАМКИ */
+.polaroid-photo {
+    position: absolute;
+    top: 0;           /* Без отступа */
+    left: 0;          /* Без отступа */
+    width: 100%;      /* На всю ширину */
+    height: 100%;     /* На всю высоту */
+    border-radius: 0; /* Без скругления */
+    overflow: visible; /* Показываем все */
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    /* Обрезка по рамке */
+    clip-path: inset(15px 15px 40px 15px); /* обрезаем сверху/снизу/слева/справа */
+}
 
-        .child-photo p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
+/* ПОДПИСЬ НА РАМКЕ */
+.polaroid-label {
+    position: absolute;
+    bottom: 20px;           /* Над нижним краем рамки */
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--font-heading); /* Great Vibes */
+    font-size: 1.4rem;
+    color: var(--primary-color);      /* Цвет из вашей палитры */
+    z-index: 2;                       /* Поверх всего */
+    pointer-events: none;             /* Не мешает кликам */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
 
-       /* ===== ВИДЕО КАРТОЧКА О ЛЮБВИ ===== */
+/* АНИМАЦИЯ ПРИ НАВЕДЕНИИ */
+.polaroid-container:hover .polaroid-frame-svg {
+    transform: translateY(-10px) rotate(-2deg);
+    filter: drop-shadow(0 20px 30px rgba(138, 122, 98, 0.3));
+}
+
+/* Для второй рамки - поворот в другую сторону */
+.alexander-frame:hover .polaroid-frame-svg {
+    transform: translateY(-10px) rotate(2deg);
+}
+
+/* =========================================== */
+/* ВИДЕО КАРТОЧКА О ЛЮБВИ */
+/* =========================================== */
 .video-love-card {
     flex: 0 0 auto;
-    width: 100%; /* Растягиваем на всю ширину */
-    max-width: 600px; /* Максимальная ширина */
+    width: 100%;
+    max-width: 600px;
     opacity: 0;
     transform: scale(0.8);
     transition: all 0.8s ease-out;
-    margin: 0 20px; /* Отступы по бокам */
+    margin: 0 20px;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(138, 122, 98, 0.2);
@@ -682,7 +720,7 @@ body::before {
 .love-video-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Высота видео */
+    height: 300px;
     overflow: hidden;
     border-radius: 20px;
 }
@@ -724,6 +762,7 @@ body::before {
     font-size: 2.5rem;
     color: var(--primary-color);
     background: linear-gradient(135deg, rgba(138, 122, 98, 0.1), rgba(106, 94, 74, 0.1));
+    display: none; /* По умолчанию скрыто */
 }
 
 .video-fallback .heart-pulse {
@@ -740,17 +779,26 @@ body::before {
     }
     
     .video-love-card {
-        order: 2; /* Видео между фото */
+        order: 2;
         margin: 20px 0;
         max-width: 90%;
     }
     
     .child-photo {
-        order: 1; /* Кристалина сверху */
+        order: 1;
     }
     
     .child-photo:last-child {
-        order: 3; /* Александр снизу */
+        order: 3;
+    }
+    
+    .polaroid-container {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .polaroid-photo {
+        clip-path: inset(12px 12px 35px 12px);
     }
     
     .love-video-container {
@@ -764,6 +812,20 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    .polaroid-container {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .polaroid-photo {
+        clip-path: inset(10px 10px 30px 10px);
+    }
+    
+    .polaroid-label {
+        font-size: 1.2rem;
+        bottom: 15px;
+    }
+    
     .love-video-container {
         height: 200px;
     }
@@ -772,27 +834,13 @@ body::before {
         font-size: 1.8rem;
     }
 }
-        .heart-animation.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
 
-       
-        .love-equation span {
-            padding: 12px 24px;
-            background: rgba(128, 207, 255, 0.1);
-            border-radius: 15px;
-            font-weight: 500;
-        }
-
-       
-
-        .heart-pulse {
-            color: var(--red-heart);
-            font-size: 2.5rem;
-            animation: gentlePulse 2s infinite;
-        }
-
+/* Анимация пульсации сердца */
+.heart-pulse {
+    color: var(--red-heart);
+    font-size: 2.5rem;
+    animation: gentlePulse 2s infinite;
+}     
         /* ===== ДАТА И МЕСТО ===== */
         .details-section {
             padding: 120px 0;
