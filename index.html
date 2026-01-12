@@ -3141,7 +3141,21 @@ function loadLocalPhotos() {
         img.src = path;
     });
 }
-
+     // Проверяем видео о любви
+const loveVideo = document.querySelector('.love-video');
+if (loveVideo) {
+    loveVideo.addEventListener('loadeddata', function() {
+        console.log('✅ Видео о любви загружено');
+        this.style.opacity = '1';
+    });
+    
+    loveVideo.addEventListener('error', function() {
+        console.log('❌ Ошибка загрузки видео о любви');
+        this.style.display = 'none';
+        const fallback = this.parentElement.querySelector('.video-fallback');
+        if (fallback) fallback.style.display = 'flex';
+    });
+}
     // ===== АНИМАЦИИ ПРИ СКРОЛЛЕ =====
     function initAnimations() {
         const observerOptions = {
