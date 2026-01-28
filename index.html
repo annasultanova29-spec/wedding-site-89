@@ -3993,12 +3993,16 @@ function initRSVPForm() {
     color: white !important;
     font-size: 1.8rem !important;
 }
- /* ФИКС КНОПКИ НА КОМПЬЮТЕРЕ */
-@media (min-width: 769px) {
-    .order-site-btn {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
+ /* СИЛЬНЫЙ ФИКС ПОЗИЦИИ - ПЕРЕОПРЕДЕЛЯЕТ ВСЕ */
+#order-site-btn,
+.order-site-btn {
+    position: fixed !important;
+    bottom: 100px !important;
+    right: 30px !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+    padding: 15px 25px !important;
 }
 </style>
 
