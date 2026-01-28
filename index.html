@@ -2822,6 +2822,19 @@ body,
         font-size: 1.1rem;
     }
 }
+    /* ФИКС ДЛЯ КНОПКИ НА КОМПЬЮТЕРЕ */
+@media (min-width: 769px) {
+    #order-site-btn,
+    .order-site-btn {
+        position: fixed !important;
+        bottom: 100px !important;
+        right: 30px !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+}
     </style>
     <!-- Загрузочный экран -->
     <div id="loading">
