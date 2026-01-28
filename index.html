@@ -3993,30 +3993,12 @@ function initRSVPForm() {
     color: white !important;
     font-size: 1.8rem !important;
 }
- /* СИЛЬНЫЙ ФИКС ПОЗИЦИИ КНОПКИ */
-#order-site-btn,
-.order-site-btn {
-    position: fixed !important;
-    bottom: 100px !important;
-    right: 30px !important;
-    left: auto !important;
-    top: auto !important;
-    background: rgba(255, 255, 255, 0.07) !important;
-    z-index: 999999 !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    visibility: visible !important;
-    display: flex !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    color: var(--primary-color) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 25px !important;
-    padding: 15px 25px !important;
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 1.3rem !important;
-    cursor: pointer !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+ /* ФИКС КНОПКИ НА КОМПЬЮТЕРЕ */
+@media (min-width: 769px) {
+    .order-site-btn {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
 }
 </style>
 
