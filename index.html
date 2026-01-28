@@ -3558,6 +3558,34 @@ function initRSVPForm() {
         }
     });
 }
+    // ===== КНОПКА ЗАКАЗА САЙТА =====
+    function initOrderButton() {
+        const orderBtn = document.getElementById('order-site-btn');
+        
+        if (!orderBtn) {
+            console.log('❌ Кнопка заказа не найдена');
+            return;
+        }
+        
+        orderBtn.addEventListener('click', function() {
+            console.log('🎯 Кнопка "Заказать сайт" нажата');
+            
+            // Укажите username вашего бота
+            const botUsername = 'wedding_site_orders_bot';
+            const telegramUrl = `https://t.me/${botUsername}?start=siteorder`;
+            
+            // Открываем Telegram
+            window.open(telegramUrl, '_blank', 'noopener,noreferrer');
+            
+            // Анимация нажатия
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        });
+        
+        console.log('✅ Кнопка заказа инициализирована');
+    }
     // ===== ФОНОВАЯ МУЗЫКА =====
     function initMusicPlayer() {
         console.log('🎵 Инициализация музыкального плеера...');
