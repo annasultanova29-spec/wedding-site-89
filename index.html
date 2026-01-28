@@ -3994,6 +3994,15 @@ function initRSVPForm() {
     color: white !important;
     font-size: 1.8rem !important;
 }
+    /* ФИКС ДЛЯ КНОПКИ ЗАКАЗА НА КОМПЬЮТЕРЕ */
+@media (min-width: 769px) {
+    .order-site-btn {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+}    
 </style>
 
 </body>
