@@ -2719,7 +2719,72 @@ body,
         bottom: 12px;
     }
 }
-        </style>
+        /* ===== КНОПКА ЗАКАЗА САЙТА ===== */
+.order-site-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: linear-gradient(135deg, #8a7a62, #6b5e4a) !important;
+    color: white !important;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(138, 122, 98, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: pulseOrder 2s infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out 3s forwards, pulseOrder 2s infinite 3s;
+}
+
+.order-site-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(138, 122, 98, 0.6);
+}
+
+@keyframes pulseOrder {
+    0%, 100% { box-shadow: 0 5px 15px rgba(138, 122, 98, 0.4); }
+    50% { box-shadow: 0 5px 20px rgba(138, 122, 98, 0.6); }
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+    .order-site-btn {
+        bottom: 100px;
+        right: 15px;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .order-site-btn .btn-text {
+        display: none;
+    }
+    
+    .order-site-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .order-site-btn i {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Загрузочный экран -->
